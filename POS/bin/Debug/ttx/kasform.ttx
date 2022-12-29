@@ -1,0 +1,7 @@
+id	String	255
+jeniskas	Number
+tgltransaksi	Date
+catatan	String	255
+grandtotal	Number
+keterangan	Number
+nominal	Number

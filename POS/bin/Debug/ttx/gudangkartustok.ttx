@@ -1,0 +1,8 @@
+tgltransaksi	Date
+barcode	String	255
+namabarang	String	255
+qtymasuk	Number
+qtykeluar	Number
+satuan	String	255
+stat	String	255
+keterangan	String	255

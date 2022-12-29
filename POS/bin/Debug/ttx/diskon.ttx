@@ -1,0 +1,11 @@
+id	String	255
+aktif	Number
+namadiskon	String	255
+tglmulai	Date
+tglselesai	Date
+catatan	String	255
+barcode	String	255
+discpersen	Number
+discrp	Number
+namabarang	String	255
+namakategori	String	255

@@ -1,0 +1,11 @@
+id	String	255
+cekawal	Number
+nama	String	255
+alamat	String	255
+telp	String	255
+nohp	String	255
+fax	String	255
+email	String	255
+npwp	String	255
+website	String	255
+catatan	String	255

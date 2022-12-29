@@ -1,0 +1,38 @@
+id	String	255
+idsupplier	String	255
+nonota	String	255
+tgltransaksi	Date
+tgltempo	Date
+catatan	String	255
+total	Number
+discpersen	Number
+discrp	Number
+potlain	Number
+biayalain	Number
+ppn	Number
+ppnnominal	Number
+ongkir	Number
+grandtotal	Number
+namasupp	String	255
+alamatsupp	String	255
+telpsupp	String	255
+nohpsupp	String	255
+faxsupp	String	255
+emailsupp	String	255
+npwpsupp	String	255
+websitesupp	String	255
+catatansupp	String	255
+barcode	String	255
+namabarang	String	255
+keterangan	String	255
+qty	Number
+satuan	String	255
+hbeli	Number
+discpersen_dtl	Number
+discpersen2_dtl	Number
+discpersen3_dtl	Number
+discrp_dtl	Number
+ppn_dtl	Number
+subtotal_dtl	Number
+idkategori	String	255
+namakategori	String	255

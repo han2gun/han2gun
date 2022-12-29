@@ -1,0 +1,7 @@
+id	String	255
+nama	String	255
+alamat	String	255
+telp	String	255
+nohp	String	255
+email	String	255
+catatan	String	255

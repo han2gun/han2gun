@@ -1,0 +1,11 @@
+id	String	255
+idpembelian	String	255
+tgltransaksi	Date
+catatan	String	255
+numbpembelian	Number
+barcode	String	255
+nama	String	255
+qtyterima	Number
+qtypembelian	Number
+satuan	String	255
+tglexp	Date

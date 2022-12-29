@@ -1,0 +1,6 @@
+tgl	Date
+time	String	255
+keterangan	String	255
+namaform	String	255
+idtransaksi	String	255
+pengguna	String	255

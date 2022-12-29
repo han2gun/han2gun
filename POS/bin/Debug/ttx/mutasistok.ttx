@@ -1,0 +1,15 @@
+barcode	String	255
+namabarang	String	255
+namakategori	String	255
+hargajual1	Number
+satuan1	String	255
+awalpembelian	Number
+pembelian	Number
+awalreturpembelian	Number
+returpembelian	Number
+awalpenjualan	Number
+penjualan	Number
+awalreturpenjualan	Number
+returpenjualan	Number
+awalpenyesuaian	Number
+penyesuaian	Number

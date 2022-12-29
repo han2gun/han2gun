@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73B5D33F-7BA8-47B4-BF66-98486C957C98}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>POS</RootNamespace>
+    <AssemblyName>POS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySqlBackup, Version=2.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Software\M\MySQL\MySQL Database\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cls\Enkripsi.cs" />
+    <Compile Include="cls\Fungsi.cs" />
+    <Compile Include="cls\Koneksi.cs" />
+    <Compile Include="cls\LogIn.cs" />
+    <Compile Include="cls\OpenForm.cs" />
+    <Compile Include="cls\Pesan.cs" />
+    <Compile Include="cls\Query.cs" />
+    <Compile Include="cmp\UpperComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cmp\UpperComboBox.Designer.cs">
+      <DependentUpon>UpperComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cr\CekHargaBeliKategori.cs">
+      <DependentUpon>CekHargaBeliKategori.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\CekHargaBeliBarang.cs">
+      <DependentUpon>CekHargaBeliBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Diskon.cs">
+      <DependentUpon>Diskon.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\KartuStok.cs">
+      <DependentUpon>KartuStok.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\MutasiStok.cs">
+      <DependentUpon>MutasiStok.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\DisplayStok.cs">
+      <DependentUpon>DisplayStok.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\CekHargaBeliSemua.cs">
+      <DependentUpon>CekHargaBeliSemua.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\DisplayKartuStok.cs">
+      <DependentUpon>DisplayKartuStok.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\GudangKartuStok.cs">
+      <DependentUpon>GudangKartuStok.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\GudangMasukBarang.cs">
+      <DependentUpon>GudangMasukBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\GudangMasukPeriode.cs">
+      <DependentUpon>GudangMasukPeriode.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\LogApp.cs">
+      <DependentUpon>LogApp.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPembelianSupplier.cs">
+      <DependentUpon>ReturPembelianSupplier.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPembelianPeriode.cs">
+      <DependentUpon>ReturPembelianPeriode.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPembelianBarang.cs">
+      <DependentUpon>ReturPembelianBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPenjualanPeriode.cs">
+      <DependentUpon>ReturPenjualanPeriode.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPenjualanCustomer.cs">
+      <DependentUpon>ReturPenjualanCustomer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPenjualanBarang.cs">
+      <DependentUpon>ReturPenjualanBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Penyesuaian.cs">
+      <DependentUpon>Penyesuaian.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPembelian.cs">
+      <DependentUpon>ReturPembelian.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\ReturPenjualan.cs">
+      <DependentUpon>ReturPenjualan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\RLPenjualanBarang.cs">
+      <DependentUpon>RLPenjualanBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\RLPenjualanKategori.cs">
+      <DependentUpon>RLPenjualanKategori.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr\RLPenjualanPeriode.cs">
+      <DependentUpon>RLPenjualanPeriode.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PindahGudangBarang.cs">
+      <DependentUpon>PindahGudangBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PindahGudangPeriode.cs">
+      <DependentUpon>PindahGudangPeriode.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PindahGudang.cs">
+      <DependentUpon>PindahGudang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\GudangStok.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GudangStok.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr\Kas.cs">
+      <DependentUpon>Kas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\GudangMasuk.cs">
+      <DependentUpon>GudangMasuk.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Pembelian.cs">
+      <DependentUpon>Pembelian.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Barang.cs">
+      <DependentUpon>Barang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Kategori.cs">
+      <DependentUpon>Kategori.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Pemasok.cs">
+      <DependentUpon>Pemasok.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Pelanggan.cs">
+      <DependentUpon>Pelanggan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\Karyawan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Karyawan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr\KasPeriode.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KasPeriode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr\PembelianBarang.cs">
+      <DependentUpon>PembelianBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PembelianSupplier.cs">
+      <DependentUpon>PembelianSupplier.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PembelianPeriode.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PembelianPeriode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr\Penjualan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Penjualan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr\PenjualanCustomer.cs">
+      <DependentUpon>PenjualanCustomer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PenjualanBarang.cs">
+      <DependentUpon>PenjualanBarang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PenjualanKategori.cs">
+      <DependentUpon>PenjualanKategori.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\PenjualanPeriode.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PenjualanPeriode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Database.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database.Designer.cs">
+      <DependentUpon>Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DSPOS.cs">
+      <DependentUpon>DSPOS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSPOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPOS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frm\BackupDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\BackupDB.Designer.cs">
+      <DependentUpon>BackupDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Barang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Barang.Designer.cs">
+      <DependentUpon>Barang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\DataPerusahaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\DataPerusahaan.Designer.cs">
+      <DependentUpon>DataPerusahaan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Diskon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Diskon.Designer.cs">
+      <DependentUpon>Diskon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Gudang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Gudang.Designer.cs">
+      <DependentUpon>Gudang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\GudangPindah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\GudangPindah.Designer.cs">
+      <DependentUpon>GudangPindah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Hutang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Hutang.Designer.cs">
+      <DependentUpon>Hutang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Karyawan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Karyawan.Designer.cs">
+      <DependentUpon>Karyawan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Kas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Kas.Designer.cs">
+      <DependentUpon>Kas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\KategoriBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\KategoriBarang.Designer.cs">
+      <DependentUpon>KategoriBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\List.Designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Opname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Opname.Designer.cs">
+      <DependentUpon>Opname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Pembelian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Pembelian.Designer.cs">
+      <DependentUpon>Pembelian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Pencarian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Pencarian.Designer.cs">
+      <DependentUpon>Pencarian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Penjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Penjualan.Designer.cs">
+      <DependentUpon>Penjualan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Penyesuaian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Penyesuaian.Designer.cs">
+      <DependentUpon>Penyesuaian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Piutang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Piutang.Designer.cs">
+      <DependentUpon>Piutang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\PreviewCetakData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\PreviewCetakData.Designer.cs">
+      <DependentUpon>PreviewCetakData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\RestoreDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\RestoreDB.Designer.cs">
+      <DependentUpon>RestoreDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\ReturPembelian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\ReturPembelian.Designer.cs">
+      <DependentUpon>ReturPembelian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\ReturPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\ReturPenjualan.Designer.cs">
+      <DependentUpon>ReturPenjualan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\Supplier.Designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\UbahPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\UbahPassword.Designer.cs">
+      <DependentUpon>UbahPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\UserMgmt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\UserMgmt.Designer.cs">
+      <DependentUpon>UserMgmt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laporan.Designer.cs">
+      <DependentUpon>Laporan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterData.Designer.cs">
+      <DependentUpon>MasterData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuUtama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuUtama.Designer.cs">
+      <DependentUpon>MenuUtama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pengaturan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pengaturan.Designer.cs">
+      <DependentUpon>Pengaturan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rpt\Laporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt\Laporan.Designer.cs">
+      <DependentUpon>Laporan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt\LaporanParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt\LaporanParam.Designer.cs">
+      <DependentUpon>LaporanParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt\LaporanParam2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt\LaporanParam2.Designer.cs">
+      <DependentUpon>LaporanParam2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaksi.Designer.cs">
+      <DependentUpon>Transaksi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="cr\CekHargaBeliKategori.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CekHargaBeliKategori.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\CekHargaBeliBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CekHargaBeliBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Diskon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Diskon.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\KartuStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>KartuStok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\MutasiStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MutasiStok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\DisplayStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DisplayStok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\CekHargaBeliSemua.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CekHargaBeliSemua.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\DisplayKartuStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DisplayKartuStok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\GudangKartuStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GudangKartuStok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\GudangMasukBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GudangMasukBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\GudangMasukPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GudangMasukPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\LogApp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LogApp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPembelianSupplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPembelianSupplier.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPembelianPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPembelianPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPembelianBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPembelianBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPenjualanPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPenjualanPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPenjualanCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPenjualanCustomer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPenjualanBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPenjualanBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Penyesuaian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Penyesuaian.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPembelian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPembelian.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\ReturPenjualan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReturPenjualan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\RLPenjualanBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RLPenjualanBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\RLPenjualanKategori.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RLPenjualanKategori.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\RLPenjualanPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RLPenjualanPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PindahGudangBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PindahGudangBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PindahGudangPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PindahGudangPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PindahGudang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PindahGudang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\GudangStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GudangStok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Kas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Kas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\GudangMasuk.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GudangMasuk.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Pembelian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Pembelian.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Barang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Barang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Kategori.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Kategori.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Pemasok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Pemasok.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Pelanggan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Pelanggan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Karyawan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Karyawan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\KasPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>KasPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PembelianBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PembelianBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PembelianSupplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PembelianSupplier.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PembelianPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PembelianPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\Penjualan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Penjualan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PenjualanCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PenjualanCustomer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PenjualanBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PenjualanBarang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PenjualanKategori.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PenjualanKategori.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\PenjualanPeriode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PenjualanPeriode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Database.resx">
+      <DependentUpon>Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\BackupDB.resx">
+      <DependentUpon>BackupDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Barang.resx">
+      <DependentUpon>Barang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\DataPerusahaan.resx">
+      <DependentUpon>DataPerusahaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Diskon.resx">
+      <DependentUpon>Diskon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Gudang.resx">
+      <DependentUpon>Gudang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\GudangPindah.resx">
+      <DependentUpon>GudangPindah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Hutang.resx">
+      <DependentUpon>Hutang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Karyawan.resx">
+      <DependentUpon>Karyawan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Kas.resx">
+      <DependentUpon>Kas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\KategoriBarang.resx">
+      <DependentUpon>KategoriBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\List.resx">
+      <DependentUpon>List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Opname.resx">
+      <DependentUpon>Opname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Pembelian.resx">
+      <DependentUpon>Pembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Pencarian.resx">
+      <DependentUpon>Pencarian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Penjualan.resx">
+      <DependentUpon>Penjualan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Penyesuaian.resx">
+      <DependentUpon>Penyesuaian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Piutang.resx">
+      <DependentUpon>Piutang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\PreviewCetakData.resx">
+      <DependentUpon>PreviewCetakData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\RestoreDB.resx">
+      <DependentUpon>RestoreDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\ReturPembelian.resx">
+      <DependentUpon>ReturPembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\ReturPenjualan.resx">
+      <DependentUpon>ReturPenjualan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\UbahPassword.resx">
+      <DependentUpon>UbahPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\UserMgmt.resx">
+      <DependentUpon>UserMgmt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan.resx">
+      <DependentUpon>Laporan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterData.resx">
+      <DependentUpon>MasterData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUtama.resx">
+      <DependentUpon>MenuUtama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pengaturan.resx">
+      <DependentUpon>Pengaturan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="rpt\Laporan.resx">
+      <DependentUpon>Laporan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt\LaporanParam.resx">
+      <DependentUpon>LaporanParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt\LaporanParam2.resx">
+      <DependentUpon>LaporanParam2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi.resx">
+      <DependentUpon>Transaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DSPOS.xsc">
+      <DependentUpon>DSPOS.xsd</DependentUpon>
+    </None>
+    <None Include="DSPOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPOS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSPOS.xss">
+      <DependentUpon>DSPOS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,8 @@
+id	String	255
+tgltransaksi	Date
+catatan	String	255
+lokasi	String	255
+barcode	String	255
+nama	String	255
+qty	Number
+satuan	String	255

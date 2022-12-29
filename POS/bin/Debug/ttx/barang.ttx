@@ -1,0 +1,13 @@
+barcode	String	255
+nama	String	255
+idkategori	String	255
+catatan	String	255
+satuan1	String	255
+stokmin	Number
+satuanstok	String	255
+hargabeli	Number
+hargajual1	Number
+stokgudang	Number
+stokrupiah	Number
+namakategori	String	255
+catatankategori	String	255

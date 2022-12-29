@@ -1,0 +1,12 @@
+id	String	255
+tgltransaksi	Date
+catatan	String	255
+barcode	String	255
+nama	String	255
+stok	Number
+nilaistok	Number
+qtypenyesuaian	Number
+qtyselisih	Number
+satuan	String	255
+nilaiqty	Number
+subtotal	Number

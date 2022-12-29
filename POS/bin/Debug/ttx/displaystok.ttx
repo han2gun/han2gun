@@ -1,0 +1,7 @@
+barcode	String	255
+namabarang	String	255
+namakategori	String	255
+awalmasuk	Number
+awalkeluar	Number
+masuk	Number
+keluar	Number

@@ -1,0 +1,26 @@
+id	String	255
+idcustomer	String	255
+idpenjualan	String	255
+tgltransaksi	Date
+catatan	String	255
+grandtotal	Number
+barcode	String	255
+nama	String	255
+keterangan	String	255
+qty	Number
+satuan	String	255
+hjual	Number
+discpersen	Number
+discrp	Number
+subtotal	Number
+subtotalhpp	Number
+kondisi	Number
+namacustomer	String	255
+alamat	String	255
+telp	String	255
+nohp	String	255
+fax	String	255
+email	String	255
+npwp	String	255
+website	String	255
+catatancustomer	String	255

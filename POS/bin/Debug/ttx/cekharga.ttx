@@ -1,0 +1,15 @@
+barcode	String	255
+namabarang	String	255
+idkategori	String	255
+namakategori	String	255
+tgltransaksi	Date
+id	String	255
+namasupplier	String	255
+hbelisatuan	Number
+ongkir	Number
+ppn	Number
+diskonumum	Number
+potlain	Number
+biayalain	Number
+stok	Number
+hjual	Number

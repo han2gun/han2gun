@@ -1,0 +1,3 @@
+id	String	255
+nama	String	255
+catatan	String	255

@@ -1,0 +1,39 @@
+id	String	255
+idcustomer	String	255
+sales	String	255
+tgltransaksi	Date
+catatan	String	255
+jenisbayar	String	255
+bank	String	255
+nokartu	String	255
+total	Number
+discpersen	Number
+discrp	Number
+ppn	Number
+ppnnominal	Number
+ongkir	Number
+grandtotal	Number
+bayar	Number
+kembalian	Number
+barcode	String	255
+idbarangdetail	Number
+qty	Number
+satuan	String	255
+hjual	Number
+discpersen_dtl	Number
+discrp_dtl	Number
+subtotal	Number
+namabarang	String	255
+keterangan	String	255
+namacustomer	String	255
+alamatcustomer	String	255
+telpcustomer	String	255
+nohpcustomer	String	255
+namausaha	String	255
+alamat	String	255
+telp	String	255
+nohp	String	255
+fax	String	255
+email	String	255
+npwp	String	255
+website	String	255
